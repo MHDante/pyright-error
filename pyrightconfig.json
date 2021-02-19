@@ -1,0 +1,24 @@
+{
+    "venvPath": "venvs",
+    "typeCheckingMode": "strict",
+    "pythonVersion": "3.7",
+    "exclude": [
+        "venvs"
+    ],
+    "useLibraryCodeForTypes": true,
+    "executionEnvironments": [
+        {
+            "root": "shared_lib/src"
+        },
+        {
+            "root": "root1/src",
+            "venv": "venv1",
+            "extraPaths": ["shared_lib/src"]
+        },
+        {
+            "root": "root2/src",
+            "venv": "venv2",
+            "extraPaths": ["shared_lib/src"]
+        }
+    ]
+}
