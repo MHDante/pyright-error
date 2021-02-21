@@ -1,10 +1,15 @@
 To set up:
 
-create the following venvs:
-
+run 
 ```
-venvs/venv1
-venvs/venv2
+./setup.bat
 ```
 
-in each you can install the appropriate requirements files from root1 and root2
+it should create the following venvs with their appropriate dependencies:
+
+```
+./venvs/venv1
+./venvs/venv2
+./venvs/venv_common
+
+```
