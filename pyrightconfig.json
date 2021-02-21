@@ -8,7 +8,8 @@
     "useLibraryCodeForTypes": true,
     "executionEnvironments": [
         {
-            "root": "shared_lib/src"
+            "root": "shared_lib/src",
+            "venv": "venv_common"
         },
         {
             "root": "root1/src",
