@@ -24,11 +24,6 @@ function setup_python_env() {
     cd ..
 }
 
-
-CALL :SetupEnv 1 , venv1 , root1
-CALL :SetupEnv 1 , venv2 , root2
-CALL :SetupEnv 1 , venv_common , shared_lib
-
 setup_python_env true "venv1" "root1"
 setup_python_env true "venv2" "root2"
 setup_python_env true "venv_common" "shared_lib"
