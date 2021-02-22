@@ -12,12 +12,12 @@
             "venv": "venv_common"
         },
         {
-            "root": "root1/src",
+            "root": "proj1/src",
             "venv": "venv1",
             "extraPaths": ["shared_lib/src"]
         },
         {
-            "root": "root2/src",
+            "root": "proj2/src",
             "venv": "venv2",
             "extraPaths": ["shared_lib/src"]
         }
