@@ -1,10 +1,6 @@
 
 SETLOCAL
 
-pip install grpcio-tools
-
-CALL :SetupEnv 1 , venv1 , proj1
-CALL :SetupEnv 1 , venv2 , proj2
 CALL :SetupEnv 1 , venv_common , shared_lib
 
 EXIT /B %ERRORLEVEL%

@@ -4,8 +4,6 @@ set -e
 
 VENVS_PATH=./venvs
 
-pip install grpcio-tools
-
 function setup_python_env() {
     reqs=$1     # boolean
     venvName=$2 # string
@@ -24,6 +22,4 @@ function setup_python_env() {
     cd ..
 }
 
-setup_python_env true "venv1" "proj1"
-setup_python_env true "venv2" "proj2"
 setup_python_env true "venv_common" "shared_lib"
