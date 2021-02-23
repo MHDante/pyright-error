@@ -6,6 +6,7 @@
         "venvs"
     ],
     "useLibraryCodeForTypes": true,
+    "venv": "venv_common",
     "executionEnvironments": [
         {
             "root": "shared_lib/src",
