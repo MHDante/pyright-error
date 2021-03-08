@@ -9,5 +9,6 @@ setup(
         "grpcio==1.35.0",
         "grpc-stubs==1.24.5",
         "protobuf==3.14.0",
+        "torch==1.7.1"
     ],
 )

@@ -1,0 +1,138 @@
+
+from dataclasses import dataclass
+from typing import Any, Type
+from typing_extensions import Literal,get_type_hints
+
+typeTuple = (str, float)
+
+type1 = typeTuple[1]
+
+
+def get_type(i: Literal[0, 1]):
+    return typeTuple[i]
+
+
+def get_type1() -> Type[float]:
+    return typeTuple[1]
+
+
+class A:
+    B = float
+
+a = A
+
+def get_nested_type():
+    return A.B
+
+
+a_instance = A()
+
+
+def get_instance_nested_type():
+    return a_instance.B
+
+
+class C(A):
+    pass
+
+class D:
+    a :A
+
+
+def get_inherited_nested_type():
+    return C.B
+
+
+c_instance = C()
+
+
+def get_instance_inherited_nested_type():
+    return c_instance.B
+
+
+f = 3.2
+
+
+def get_type_through_class():
+    return f.__class__
+
+
+class GetItemTest:
+    def __getitem__(self, i: Any):
+        return float
+
+
+get_item_instance = GetItemTest()
+
+
+def get_through_instance_get_item():
+    return get_item_instance["cheem"]
+
+
+@dataclass
+class Cheem:
+    param00: float
+    param01: type1
+    param02: typeTuple[1]
+    param03: get_type(1)
+    param04: get_type1()
+    param05: A.B
+    param06: a.B
+    param07: get_nested_type()
+    param08: a_instance.B
+    param09: get_instance_nested_type()
+    param10: C.B
+    param11: get_inherited_nested_type()
+    param12: c_instance.B
+    param13: get_instance_inherited_nested_type()
+    param14: f.__class__
+    param15: get_type_through_class()
+    param16: get_item_instance["some_string"]
+    param17: get_through_instance_get_item()
+
+cheem = Cheem(
+     0.0,
+     1.0,
+     2.0,
+     3.0,
+     4.0,
+     5.0,
+     6.0,
+     7.0,
+     8.0,
+     9.0,
+    10.0,
+    11.0,
+    12.0,
+    13.0,
+    14.0,
+    15.0,
+    16.0,
+    17.0
+)
+x : float = -1.0
+
+x = cheem.param00
+x = cheem.param01
+x = cheem.param02
+x = cheem.param03
+x = cheem.param04
+x = cheem.param06
+x = cheem.param05
+x = cheem.param07
+x = cheem.param08
+x = cheem.param09
+x = cheem.param10
+x = cheem.param11
+x = cheem.param12
+x = cheem.param13
+x = cheem.param14
+x = cheem.param15
+x = cheem.param16
+x = cheem.param17
+
+hints = get_type_hints(Cheem, include_extras=True, globalns=globals(), localns=locals())
+
+for field in hints:
+    hint = hints[field]
+    print(field, hint)

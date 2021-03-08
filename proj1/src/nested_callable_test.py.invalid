@@ -1,0 +1,23 @@
+from typing import Annotated, Any, Generic, Type, TypeVar
+from dataclasses import dataclass
+
+T = TypeVar("T")
+
+
+
+def Annotate(t : Type[T], comment: str, priority:int) -> Type[T]:
+    return Annotated[t,comment, priority]
+
+
+
+@dataclass
+class TypedAnnotation(Generic[T]):
+    type : Type[T]
+    param1: int
+    param2: str
+
+def AnnotateTyped(*args:Any, **kwargs:Any):
+    annotation = TypedAnnotation(*args, **kwargs)
+    type = annotation.type
+    return Annotated[type,annotation]
+
