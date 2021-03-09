@@ -1,0 +1,40 @@
+from typing import Callable, TypeVar, ParamSpec
+
+P = ParamSpec("P")
+R = TypeVar("R")
+
+def puts_p_into_scope(f: Callable[P, int]) -> None:          # Should allow single use.
+
+  def inner(*args: P.args, **kwargs: P.kwargs) -> None:      # This is fine
+    pass
+
+  def mixed_up(*args: P.kwargs, **kwargs: P.args) -> None:   # Should raise error
+    pass
+
+  def misplaced(x: P.args) -> None:                          # Should raise error
+    pass
+
+  stored_args: P.args                                        # Should raise error
+  stored_kwargs: P.kwargs                                    # Should raise error
+
+  stored_args = "bad string"                                 # Should raise error. 
+  stored_kwargs = "bad string"                               # Should raise error. 
+
+  def just_args(*args: P.args) -> None:                      # Should raise error
+    pass
+
+  def just_kwargs(**kwargs: P.kwargs) -> None:               # Should raise error
+    pass
+
+  #Used to quiet unused reportUnusedVariable
+  print(inner, mixed_up, misplaced, stored_args, 
+        stored_kwargs, just_args, just_kwargs)
+
+def out_of_scope(*args: P.args, **kwargs: P.kwargs) -> None: # Should raise error
+  pass
+
+out_of_scope_var1 : R = 12                                   # this is fine
+
+out_of_scope_var2 : P = 12                                   # this is fine
+
+out_of_scope_var3 : P.args = 12                              # should raise error

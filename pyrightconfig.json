@@ -1,7 +1,7 @@
 {
     "venvPath": "venvs",
     "typeCheckingMode": "strict",
-    "pythonVersion": "3.7",
+    "pythonVersion": "3.10",
     "exclude": [
         "venvs"
     ],
